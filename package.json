@@ -1,0 +1,40 @@
+{
+  "name": "playwright-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woytekn/playwright-framework.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woytekn/playwright-framework/issues"
+  },
+  "homepage": "https://github.com/woytekn/playwright-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.28.1",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.30.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1"
+  }
+}
