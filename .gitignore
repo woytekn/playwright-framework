@@ -7,4 +7,3 @@ state.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
-/visual/.visualComparison.spec.js-snapshots
