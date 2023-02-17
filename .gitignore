@@ -3,7 +3,7 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 .env
-/state.json
+state.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
