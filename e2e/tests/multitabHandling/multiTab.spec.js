@@ -20,5 +20,6 @@ test('As a user I want to open a new tab and visit it', async ({
     productsPage.openNewTabWithProduct(purchasedProduct),
   ]);
   newPage.locator('text=Sauce Labs Onesie').click();
-  await page.pause();
+  // Uncomment await page.pause(); if you want to investigate which tab has been used in the test
+  // await page.pause();
 });
