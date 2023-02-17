@@ -99,4 +99,12 @@ export class ProductsPage {
       .locator(`text=${product}`)
       .click({ button: 'middle' });
   }
+
+  async selectProductByText(page, text) {
+    await page.locator(`text=${text}`).click();
+  }
+
+  async addToCartButtonClick() {
+    await this.addToCartButton.click();
+  }
 }
