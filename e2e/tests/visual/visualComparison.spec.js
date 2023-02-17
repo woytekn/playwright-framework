@@ -24,5 +24,3 @@ test('As a user I want to compare the state of the landing page using visual com
 }) => {
   await expect(page).toHaveScreenshot('landing_page.png');
 });
-
-//test something
