@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { ProductsPage } from '../pages/ProductsPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { ProductsPage } from '../../pages/ProductsPage';
 
 /*
 If you want to check how the visual comparison failure works, just uncomment the below line. It will change the viewport, so that screens will not match.
