@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/woytekn/playwright-framework#readme",
   "devDependencies": {
-    "@playwright/test": "^1.28.1",
+    "@playwright/test": "^1.30.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.30.0",
     "husky": "^8.0.0",

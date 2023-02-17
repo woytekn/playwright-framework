@@ -15,8 +15,9 @@ export class ProductsPage {
    * @param {import('@playwright/test').Page} page
    */
 
-  constructor(page) {
+  constructor(page, browser) {
     this.page = page;
+    this.browser = browser;
     this.productSortingDropdown = page.locator('.product_sort_container');
     this.inventoryItem = page.locator('.inventory_item_name').nth(0);
     this.inventoryAllProducts = page.locator('.inventory_item_name');
@@ -91,5 +92,11 @@ export class ProductsPage {
   async addSingleProductToCartAndOpenCart(product) {
     await this.addSingleProductToCart(product);
     await this.openCart();
+  }
+
+  async openNewTabWithProduct(product) {
+    await this.inventoryItem
+      .locator(`text=${product}`)
+      .click({ button: 'middle' });
   }
 }
