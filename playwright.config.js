@@ -105,10 +105,11 @@ const config = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+  webServer: {
+    command: 'npm run dev --port 8080',
+    port: 8080,
+    reuseExistingServer: true,
+  },
 };
 
 module.exports = config;
