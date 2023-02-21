@@ -3,6 +3,7 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 state.json
+/state.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
