@@ -2,6 +2,7 @@ import { LoginPage } from './LoginPage';
 import { ProductsPage } from './ProductsPage';
 import { CartPage } from './CartPage';
 import { CheckoutPage } from './CheckoutPage';
+import { SharedPage } from './SharedPage';
 
 export class Index {
   constructor(page) {
@@ -10,6 +11,7 @@ export class Index {
     this.productsPage = new ProductsPage(this.page);
     this.cartPage = new CartPage(this.page);
     this.checkoutPage = new CheckoutPage(this.page);
+    this.sharedPage = new SharedPage(this.page);
   }
 
   getLoginPage() {
@@ -26,6 +28,9 @@ export class Index {
 
   getCheckoutPage() {
     return this.checkoutPage;
-    xw;
+  }
+
+  getSharedPage() {
+    return this.sharedPage;
   }
 }
