@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 import { LoginPage } from '../../pages/LoginPage';
 import { ProductsPage } from '../../pages/ProductsPage';
@@ -24,10 +24,12 @@ test('As a user I want to open a new tab and visit it', async ({
     productsPage.openNewTabWithProduct(newPageLocators.sauceLabsBackpack),
   ]);
   const sharedPage = new SharedPage(newPage);
-  productsPage.selectProductByText(newPage, newPageLocators.sauceLabsOnesie);
-  newPage.locator(newPageLocators.sauceLabsOnesie).click();
-  sharedPage.addToCartButtonClick();
-
+  await productsPage.selectProductByText(
+    newPage,
+    newPageLocators.sauceLabsOnesie,
+  );
+  await expect(newPage.locator(newPageLocators.sauceLabsOnesie)).toBeVisible();
+  await sharedPage.addToCartButtonClick();
   // Uncomment await page.pause(); if you want to investigate which tab has been used in the test
-  await page.pause();
+  // await page.pause();
 });

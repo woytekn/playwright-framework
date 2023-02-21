@@ -11,4 +11,8 @@ export class SharedPage {
   async addToCartButtonClick() {
     await this.addToCartButton.click();
   }
+
+  async productClick() {
+    await this.addToCartButton.click();
+  }
 }

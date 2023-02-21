@@ -101,7 +101,7 @@ export class ProductsPage {
   }
 
   async selectProductByText(page, text) {
-    await page.locator(`text=${text}`).click();
+    await page.locator(text).click();
   }
 
   async addToCartButtonClick() {
