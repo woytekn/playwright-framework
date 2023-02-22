@@ -18,7 +18,7 @@ test('As a user I want to check if the sorting feature works correctly using for
   page,
 }) => {
   const productsPage = new ProductsPage(page);
-  await productsPage.productsSortingForLoop();
+  await productsPage.productsSortingForEach();
 });
 
 test('As a user I want to check if the sorting feature works correctly using for loop with pusing values to the array', async ({
