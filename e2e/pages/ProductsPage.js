@@ -51,25 +51,47 @@ export class ProductsPage {
     });
   }
 
+  /*
+  Simpler version of productsSortingPushingToArray() 
+  */
+  // async productsSortingPushingToArray() {
+  //   let count = options.length;
+  //   let productsCount = await this.inventoryAllProducts.count();
+  //   const arrayOfProducts = [];
+
+  //   for (let i = 0; i < count; i++) {
+  //     await this.productSortingDropdown.selectOption(options[i]);
+  //     arrayOfProducts.length = 0;
+  //     console.log(options[i]);
+
+  //     for (let i = 0; i < productsCount; i++) {
+  //       let currentItem = await this.inventoryAllProducts.nth(i).textContent();
+  //       arrayOfProducts.push(currentItem);
+  //     }
+  //     console.log(arrayOfProducts);
+  //     expect(this.inventoryItem.nth(0)).toHaveText(arrayOfProducts[0]);
+  //   }
+  // }
+
   async productsSortingPushingToArray() {
     let count = options.length;
     let productsCount = await this.inventoryAllProducts.count();
-    const arrayOfProducts = [];
 
     for (let i = 0; i < count; i++) {
       await this.productSortingDropdown.selectOption(options[i]);
-      arrayOfProducts.length = 0;
-      console.log(options[i]);
-
-      for (let i = 0; i < productsCount; i++) {
-        let currentItem = await this.inventoryAllProducts.nth(i).textContent();
-        arrayOfProducts.push(currentItem);
-      }
-      console.log(arrayOfProducts);
+      const arrayOfProducts = await Promise.all(
+        Array(productsCount)
+          .fill(0)
+          .map(async (_, index) => {
+            let currentItem = await this.inventoryAllProducts
+              .nth(index)
+              .textContent();
+            return currentItem;
+          }),
+      );
       expect(this.inventoryItem.nth(0)).toHaveText(arrayOfProducts[0]);
     }
   }
-
   async addSingleProductToCart(product) {
     const count = await this.inventoryAllProducts.count();
 

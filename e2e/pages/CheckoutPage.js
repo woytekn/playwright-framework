@@ -5,18 +5,18 @@ export class CheckoutPage {
 
   constructor(page) {
     this.page = page;
-    this.firstName = page.locator('#first-name');
-    this.lastName = page.locator('#last-name');
-    this.zipPostalCode = page.locator('#postal-code');
-    this.continueCheckoutButton = page.locator('#continue');
+    this.firstName = page.getByTestId('first-name');
+    this.lastName = page.getByTestId('last-name');
+    this.zipPostalCode = page.getByTestId('postal-code');
+    this.continueCheckoutButton = page.getByTestId('continue');
     this.checkoutSummarySectionInfo = page.locator('.summary_info > div');
     this.cartItemQuantity = page.locator('.cart_quantity');
-    this.finishCheckoutButton = page.locator('#finish');
+    this.finishCheckoutButton = page.getByTestId('finish');
     this.purchaseConfirmTextHeader = page.locator(
       ".complete-header:has-text('THANK YOU FOR YOUR ORDER')",
     );
-    this.goBackCheckoutButton = page.locator('#back-to-products');
-    this.cancelCheckoutButton = page.locator('#cancel');
+    this.goBackCheckoutButton = page.getByTestId('back-to-products');
+    this.cancelCheckoutButton = page.getByTestId('cancel');
   }
 
   async goTo(path) {

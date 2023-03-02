@@ -8,7 +8,6 @@ export class CartPage {
 
   constructor(page) {
     this.page = page;
-    this.removeButton = page.locator('text=Remove');
     this.checkoutButton = page.locator('text=Checkout');
   }
 
@@ -21,15 +20,18 @@ export class CartPage {
     const productsPage = index.getProductsPage();
     await productsPage.addSingleProductToCart(product);
     await productsPage.openCart();
-    if (await this.removeButton.isVisible()) {
-      let count = await this.removeButton.count();
-      for (let i = 0; i < count; ++i) {
-        if (await this.removeButton.isVisible()) {
-          await this.removeButton.click();
-        } else {
-          break;
-        }
-      }
+    const removeButton = 'text=Remove';
+    await this.page.waitForSelector(removeButton);
+    /*
+    $$eval is a Playwright method that allows us to evaluate a function in the context of the page and pass the result back to Node.js. In this case, we're passing a function that selects all the remove buttons on the page using the same selector we used with waitForSelector. $$eval returns an array of all the values returned by the function for each element that matches the selector.
+    */
+    let count = await this.page.$$eval(
+      removeButton,
+      (buttons) => buttons.length,
+    );
+    for (let i = 0; i < count; ++i) {
+      const removeButtons = await this.page.$$(removeButton);
+      await removeButtons[i].click();
     }
   }
 

@@ -40,9 +40,10 @@ test('As a user who added a product to a cart I want to checkout', async ({
     'summary_value_label',
     'summary_info_label',
     'summary_value_label',
+    'summary_info_label',
     'summary_subtotal_label',
     'summary_tax_label',
-    'summary_total_label',
+    'summary_info_label summary_total_label',
     'cart_footer',
   ]);
   await expect(page.locator('.summary_subtotal_label')).toContainText(
