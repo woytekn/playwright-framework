@@ -9,6 +9,7 @@ export class CartPage {
   constructor(page) {
     this.page = page;
     this.checkoutButton = page.locator('text=Checkout');
+    this.removeButton = page.locator('text=Remove');
   }
 
   async goTo(path) {

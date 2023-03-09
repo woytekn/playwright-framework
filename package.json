@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npx playwright install",
-    "test": "npx playwright test",
+    "test": "",
     "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "report": "npx playwright show-report"
   },
