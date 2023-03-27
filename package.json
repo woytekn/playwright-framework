@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npx playwright install",
     "test": "",
-    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+    "execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+    "report": "npx playwright show-report"
   },
   "repository": {
     "type": "git",
