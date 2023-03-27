@@ -40,6 +40,7 @@ export class ProductsPage {
   async productsSortingForEach() {
     options.forEach(async (options, index) => {
       await this.productSortingDropdown.selectOption(options);
+      await this.page.waitForLoadState();
       /*** An example how dynamic locator values can be used.
       await expect(
         this.productSortingDropdown.locator(`option[value=${options}]`)
