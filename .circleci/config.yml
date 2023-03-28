@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: mcr.microsoft.com/playwright:v1.27.1-focal
     environment:
-      PLAYWRIGHT_USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
-      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
+      LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
     steps:
       - checkout
       - run:
