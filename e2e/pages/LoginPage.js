@@ -14,8 +14,8 @@ export class LoginPage {
   }
 
   async validLogin(username, password) {
-    await this.usernameInput.type(process.env.LOGIN_USERNAME);
-    await this.passwordInput.type(process.env.LOGIN_PASSWORD);
+    await this.usernameInput.type(username);
+    await this.passwordInput.type(password);
     Promise.all([
       await this.page.waitForLoadState(),
       await this.loginButton.click(),
