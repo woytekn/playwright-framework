@@ -32,11 +32,16 @@
   },
   "homepage": "https://github.com/woytekn/playwright-framework#readme",
   "devDependencies": {
-    "@playwright/test": "^1.30.0",
+    "@playwright/test": "^1.32.1",
     "dotenv": "^16.0.3",
     "eslint": "^8.30.0",
     "husky": "^8.0.0",
+    "lighthouse": "^9.6.8",
     "lint-staged": "^13.1.0",
+    "playwright-lighthouse": "^2.2.2",
     "prettier": "^2.8.1"
+  },
+  "dependencies": {
+    "playwright": "^1.32.1"
   }
 }
