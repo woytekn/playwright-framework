@@ -3,7 +3,9 @@ jobs:
   run-test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.27.1-focal
-    # Steps to the job
+    environment:
+      PLAYWRIGHT_USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
+      PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
     steps:
       - checkout
       - run:
@@ -12,17 +14,10 @@ jobs:
       - run:
           name: Run tests
           command: npm run test
-          environment:
-            USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
-            PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
       - store_test_results:
           path: results.xml
 
-# Invoke jobs via workflows
 workflows:
   run-test-workflow:
     jobs:
-      - run-test:
-          environment:
-            PLAYWRIGHT_USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
-            PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      - run-test
