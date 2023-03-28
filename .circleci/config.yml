@@ -8,16 +8,21 @@ jobs:
       - checkout
       - run:
           name: Download dependency
-          environment:
-            SECRET_KEY: SECRET_KEY
           command: npm ci
       - run:
           name: Run tests
           command: npm run test
+          environment:
+            USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
+            PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
       - store_test_results:
           path: results.xml
+
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
     jobs:
-      - run-test
+      - run-test:
+          environment:
+            PLAYWRIGHT_USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
+            PLAYWRIGHT_PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
