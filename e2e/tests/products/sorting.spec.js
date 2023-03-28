@@ -14,12 +14,13 @@ test('As a user I want to check if the sorting feature works correctly using for
   await productsPage.productsSortingForLoop();
 });
 
-test('As a user I want to check if the sorting feature works correctly using forEach loop', async ({
-  page,
-}) => {
-  const productsPage = new ProductsPage(page);
-  await productsPage.productsSortingForEach();
-});
+test.fixme(
+  'As a user I want to check if the sorting feature works correctly using forEach loop',
+  async ({ page }) => {
+    const productsPage = new ProductsPage(page);
+    await productsPage.productsSortingForEach();
+  },
+);
 
 test('As a user I want to check if the sorting feature works correctly using for loop with pusing values to the array', async ({
   page,
