@@ -27,8 +27,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      USERNAME: ${{ secrets.PLAYWRIGHT_USERNAME }}
-      PASSWORD: ${{ secrets.PLAYWRIGHT_PASSWORD }}
+      USERNAME: ${{ secrets.LOGIN_USERNAME }}
+      PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
     steps:
       # Checkout and do a deep fetch to load all commit IDs
       - uses: actions/checkout@v2
