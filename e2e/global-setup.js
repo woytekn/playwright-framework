@@ -10,10 +10,7 @@ module.exports = async (config) => {
   const index = new Index(page);
   const loginPage = index.getLoginPage();
   await loginPage.goTo(baseURL);
-  await loginPage.validLogin(
-    process.env.LOGIN_USERNAME,
-    process.env.LOGIN_PASSWORD,
-  );
+  await loginPage.validLogin(username, password);
   await page.context().storageState({ path: storageState });
   await browser.close();
 };
